@@ -10,18 +10,21 @@
         <div class=""tl_page>...</div>
     
     <main>
-        <h1 class="title">Title</h1>
-        <h3>Your name</h3>
-        <h3>Your story...</h3>
-    </main>
+        <!-- <h1 class="title">Title</h1>
+        <h3>Pseudonym</h3>
+        <h3>Your story...</h3> -->
+        <form id="new-dog-form">
+            <label for="name">Title</label>
+            <input type="text" id="name" />
 
-    <section id="modal" style="display: none;">
-        <i><a href="#">x</a></i>
-        <h2></h2>
-        <article></article>
-    </section>
-    
-    <form id="button"><input type="submit" value="Publish"></form>
-    
+            <label for="age">Pseudoymn</label>
+            <input type="number" id="age" />
+
+            
+        </form>
+
+        <textarea id="entry" name="postEntry" cols="100" rows="30" class ="form-control" required maxlength="300"></textarea>
+    </main>
+    <input type="submit" value="Publish">
 </body>
 </html>
