@@ -50,7 +50,11 @@ button, input {
 input { background-color: rgba(119, 129, 133, 0.4); }
 
 #publishbutton {
-    background-color: grey;
+    background-color: white;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    border: 2px solid black;
 }
 
 
