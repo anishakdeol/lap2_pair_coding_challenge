@@ -18,7 +18,6 @@ html, body {
     font-family: var(--font-primary);
 }
 
-a { text-decoration: none; }
 
 body {
     display: grid;
@@ -45,6 +44,13 @@ button, input {
     margin: 10px;
     border-radius: 5px;
     padding: 5px 15px;
+}
+
+
+input { background-color: rgba(119, 129, 133, 0.4); }
+
+#publishbutton {
+    background-color: grey;
 }
 
 
