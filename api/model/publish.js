@@ -4,7 +4,7 @@ class Post {
   constructor(data) {
     (this.id = data.id),
       (this.title = data.title),
-      (this.psedonym = data.pseudonym),
+      (this.pseudonym = data.pseudonym),
       (this.body = data.body);
   }
 

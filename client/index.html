@@ -1,30 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/index.css">
-<body>
-    <div class="tl_page_wrap">
-        <div class=""tl_page>...</div>
-    
-    <main>
-        <!-- <h1 class="title">Title</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static/index.css" />
+    <script defer src="./static/layout.js"></script>
+    <script defer src="./static/requests.js"></script>
+  </head>
+  <body>
+    <section class="form">
+      <form class="main-grid">
+        <h1>Title</h1>
+        <input
+          type="text"
+          id="title"
+          placeholder="Title"
+          maxlength="80"
+          required
+        />
         <h3>Pseudonym</h3>
-        <h3>Your story...</h3> -->
-        <form id="new-dog-form">
-            <label for="name">Title</label>
-            <input type="text" id="name" />
+        <input
+          type="text"
+          name="pseudonym"
+          id="pseudonym"
+          placeholder="Pseudonym"
+          maxlength="30"
+          required
+        />
+        <textarea
+          name="body"
+          id="body"
+          cols="30"
+          rows="10"
+          placeholder="Enter your post..."
+          maxlength="2000"
+          required
+        ></textarea>
+        <input
+          type="submit"
+          name="submit-btn"
+          id="submit-btn"
+          value="PUBLISH"
+        />
+      </form>
+    </section>
 
-            <label for="age">Pseudoymn</label>
-            <input type="text" />
-
-            
-        </form>
-
-        <textarea id="entry" name="postEntry" cols="100" rows="30" class ="form-control" required maxlength="300"></textarea>
-    </main>
-    <input id="publishbutton" type="submit" value="PUBLISH">
-</body>
+    <section class="form main-grid post-hide">
+      <h1 class="post-title"></h1>
+      <h3 class="post-name"></h3>
+      <p class="post-body"></p>
+      <button class="back">Go Back</button>
+    </section>
+  </body>
 </html>

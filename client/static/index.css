@@ -1,62 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Quicksand&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Quicksand&display=swap");
 
 :root {
-
-    --text-primary: var(--primary);
-    --text-secondary: var(--secondary);
-    --text-accent:  var(--primary);
-    --font-primary: 'Montserrat', sans-serif;
-    --font-accent: 'Quicksand', sans-serif;;
-   
+  --font-primary: "Montserrat", sans-serif;
+  --font-accent: "Quicksand", sans-serif;
 }
 
-* { box-sizing: border-box; }
-
-html, body { 
-    height: 100%;
-    margin: 0;
-    font-family: var(--font-primary);
+* {
+  box-sizing: border-box;
+  font-family: var(--font-primary);
 }
 
-
-body {
-    display: grid;
-    grid-template-rows: 5vh 90vh 5vh;
-    position: fixed;
-    width: 100vw;
-    text-align: center;
+.form {
+  max-width: 1000px;
+  margin: auto;
 }
 
-main {
-    padding: 10px 0;
-    width: 100vw;
-    max-height: 95vh;
-    margin: 0 auto;
-    grid-gap: 10px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    z-index: -1;
-    text-align: center;
+.main-grid {
+  display: grid;
 }
 
-button, input {
-    border: none;
-    margin: 10px;
-    border-radius: 5px;
-    padding: 5px 15px;
+#pseudonym {
+  margin-bottom: 10px;
+  font-size: 17px;
 }
 
-
-input { background-color: rgba(119, 129, 133, 0.4); }
-
-#publishbutton {
-    background-color: white;
-    width: 100px;
-    height: 30px;
-    border-radius: 5px;
-    border: 2px solid black;
+#title {
+  font-size: 20px;
 }
 
+textarea {
+  resize: none;
+}
 
+#submit-btn,
+.back {
+  max-width: 100px;
+  margin: auto;
+  margin-top: 10px;
+}
 
+.hidden {
+  display: none;
+}
 
+.post-hide {
+  display: none;
+}
