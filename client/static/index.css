@@ -17,6 +17,8 @@
 
 .main-grid {
   display: grid;
+  max-width: 1000px;
+  margin: auto;
 }
 
 #pseudonym {
@@ -40,9 +42,5 @@ textarea {
 }
 
 .hidden {
-  display: none;
-}
-
-.post-hide {
   display: none;
 }

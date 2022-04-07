@@ -1,35 +1,74 @@
-const { getAll, getItem, post } = require("./requests");
-
-const form = document.querySelector("#form");
+const form = document.querySelector(".form");
 const hiddenPost = document.querySelector(".post-hide");
-hiddenPost.classList.add("hidden");
-const inputForm = document.querySelector(".main-grid");
+const inputForm = document.querySelector(".input-form");
 const backBtn = document.querySelector(".back");
 
-async function updateWindow() {
-  let hash = window.location.hash.substring(1);
-  if (hash) {
-    let data = await getItem(hash);
-    showSpecificPost(data);
+let id;
+inputForm.addEventListener("submit", createPost);
+
+async function createPost(e) {
+  e.preventDefault();
+  try {
+    const options = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        title: e.target.title.value,
+        pseudonym: e.target.pseudonym.value,
+        body: e.target.body.value,
+      }),
+    };
+    const response = await fetch(`http://localhost:3000/`, options);
+    const post = await response.json();
+    id = post.id;
+    window.location.hash = `#${post.id}`; //Look up
+  } catch (err) {
+    console.log(err);
   }
 }
 
-function showSpecificPost(data) {
+window.addEventListener("hashchange", update);
+window.addEventListener("load", update);
+
+async function update() {
+  //   let hash = window.location.substring(1);
+  if (id) {
+    let postData = await getPost(id);
+    console.log(postData);
+    showPost(postData);
+  } else {
+    document.querySelector(".post-title").textContent = "";
+    document.querySelector(".post-name").textContent = "";
+    document.querySelector(".post-body").textContent = "";
+    form.classList.remove("hidden");
+    hiddenPost.classList.add("hidden");
+  }
+}
+
+async function getPost(id) {
+  try {
+    const response = await fetch(`http://localhost:3000/${id}`);
+    const postData = await response.json();
+    return postData;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+function showPost(postData) {
+  console.log(typeof postData);
   form.classList.add("hidden");
   hiddenPost.classList.remove("hidden");
-  if (typeof data !== "undefined") {
-    document.querySelector(".post-title").textContent = data.title;
-    document.querySelector(".post-name").textContent = data.pseudonym;
-    document.querySelector(".post-body").textContent = data.body;
+  if (typeof postData !== "undefined") {
+    document.querySelector(".post-title").textContent = postData.title;
+    document.querySelector(".post-name").textContent = postData.pseudonym;
+    document.querySelector(".post-body").textContent = postData.body;
   } else {
-    document.querySelector(".post-title").textContent = "There is no post here";
+    document.querySelector(".post-title").textContent = "Post does not exist";
   }
 }
-
-window.addEventListener("hashchange", updateWindow);
-window.addEventListener("load", updateWindow);
-inputForm.addEventListener("submit", post);
 
 backBtn.addEventListener("click", () => {
   window.location.hash = "";
+  console.log("btn clicked");
 });
