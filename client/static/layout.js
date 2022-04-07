@@ -69,6 +69,6 @@ function showPost(postData) {
 }
 
 backBtn.addEventListener("click", () => {
-  window.location.hash = "";
+  window.location = "";
   console.log("btn clicked");
 });
